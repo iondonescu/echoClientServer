@@ -1,0 +1,31 @@
+Proiect CLIENT/SERVER – Retele de calculatoare - UB-ID Donescu Ion
+
+	Unul sau mai multe calculatoare din retea (INTRANET/INTERNET) sunt utilizate ca si server iar 
+altele ca si clienti ce se conecteaza la server. Procedura client/server poate fi implementata 
+si in cadrul aceluiasi host (exemplu:  in dezvoltarea de pagini web locale si rularea unui 
+server apache la care ne conectam cu browser-ul).
+	Calculatoarele intr-o retea comunica prin protocoale TCP (Transmission Control Protocol)  sau 
+UDP (User Datagram Protocol). Calculatoarele,utilizand conexiune fizica la retea, ruleaza una 
+sau mai multe aplicatii care solicita date din retea. Fiecare aplicatie are asociat un port , 
+iar atunci cand datele sunt receptionate, numarul portului este utilizat pentru a fi directionate 
+catre aplicatia care le-a solicitat. 
+	Comunicarea client/server utilizeza adrese unice a fiecarui host , adrese IP conform 
+standardelor IPv4 sau IPv6. Protocolul TCP/IP poate fi si local, caz in care in mod uzual,  
+adresa 127.0.0.1 (localhost) este utilizata. Din considerente evidente , codul atasat utilizeaza localhost-ul.
+	Comunicarea in retea in java se realizeaza utilizand API-ul java.net package utilizand socket-uri. 
+Cand sunt conectati mai multi clienti la acelasi server, se utilizeaza acelasi port dar fiecare va avea 
+propriul socket (Socket class pentru clients si ServerSocket class pentru server).
+	Proiectul include doua aplicatii java server si client.
+	
+Server
+class Main:
+	Initiem un server socket avand port 5000 (line 11). Cand clientul se conecteaza (13), server-ul utilizeaza
+input/output stream sa primeasca /transmita informatie catre client. Citeste informatie de la client (24 inputuri.readLine), 
+pana cand clientul introduce exit, afiseaza in consola mesajul de la client  si transmite informatia 
+catre socket (30 outputuri.println )
+
+Client
+class Main
+Initiem un socket (9). Folosim acelasi port. De asemenea initiem input/output stream(14,16).
+Citim de la consola textul pe care il transmitem serverului (26 stringToEcho.println) si care se va reintoarce (27 echoes.readLine),
+pana cand se introduce textul “exit”
